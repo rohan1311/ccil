@@ -122,7 +122,7 @@ def orchestrate_flow():
         total_value_text = "Standard Lot + Odd Lot + Unconfirmed Standard Lot + Unconfirmed Odd Lot = " + str(
             total_value)
 
-        # Configuration
+        # Configuration comment
         screenshot_path = "website_screenshot.png"
 
         # Take a screenshot
