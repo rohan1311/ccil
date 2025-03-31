@@ -12,8 +12,9 @@ import os
 import base64
 import requests
 import mimetypes
+import time
 
-url = "https://www.ccilindia.com/OMRPT_2Deals.aspx"
+url = "https://www.ccilindia.com/web/ccil/reported-deals2"
 client_id ="542648783693-e1e6uvevlh2cpj67a38g1684hqiaeqel.apps.googleusercontent.com"
 client_secret = "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"
 SCOPES = ['https://www.googleapis.com/auth/gmail.send']
@@ -60,7 +61,9 @@ def take_screenshot():
     options.headless = True
     driver = webdriver.Chrome(options=options)
     driver.get(url)
-    driver.save_screenshot(screenshot_path)
+    time.sleep(10)
+    cookies = driver.get_cookies()
+    # driver.save_screenshot(screenshot_path)
     driver.quit()
 
 
@@ -69,8 +72,8 @@ def get_gmail_service():
     # The file token.json stores the user's access and refresh tokens, and is
     # created automatically when the authorization flow completes for the first
     # time.
-    if os.path.exists('token.json'):
-        creds = Credentials.from_authorized_user_file('token.json', SCOPES)
+    if os.path.exists('test/token.json'):
+        creds = Credentials.from_authorized_user_file('test/token.json', SCOPES)
     # If there are no (valid) credentials available, let the user log in.
     if not creds or not creds.valid:
         if creds and creds.expired and creds.refresh_token:
@@ -79,7 +82,7 @@ def get_gmail_service():
             flow = InstalledAppFlow.from_client_secrets_file('credentials.json', SCOPES)
             creds = flow.run_local_server(port=3000)
         # Save the credentials for the next run
-        with open('token.json', 'w') as token:
+        with open('test/token.json', 'w') as token:
             token.write(creds.to_json())
     return build('gmail', 'v1', credentials=creds)
 
@@ -115,6 +118,8 @@ def send_message(service, user_id, message):
 
 
 def orchestrate_flow():
+    take_screenshot()
+
     global s, screenshot_path
     with requests.session() as s:
         # Scrape website
@@ -123,7 +128,7 @@ def orchestrate_flow():
             total_value)
 
         # Configuration comment
-        screenshot_path = "website_screenshot.png"
+        screenshot_path = "test/website_screenshot.png"
 
         # Take a screenshot
         take_screenshot()
