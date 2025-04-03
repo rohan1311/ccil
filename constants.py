@@ -21,9 +21,6 @@ T1_UNCONFIRMED_DEAL_URL = "https://old.ccilindia.com/OMRPT_UNDRCT.aspx"
 # Commons constants
 SES_REGION = 'ap-southeast-2'
 T1_T2_DEALS_EMAIL_SUBJECT = "T1 T2 Deals"
-SENDER = 'info@innovercapital.com'
-TEST_RECIPIENT = ['shubhi.moti@gmail.com', 'pathak.maneesh@gmail.com']
-RECIPIENTS = ['rishi.bansal@innovercapital.com', 'vanita.tiwari@innovercapital.com', 'shubhi.moti@gmail.com',
-'maneesh.pathak@morganstanley.com', 'ritesh_lunawat@icicipruamc.com', 'ardhendu.bhattacharya@sbimf.com', 'hardik10.shah@axismf.com',
-'kaushal.singh1@morganstanley.com', 'rupak.jain@morganstanley.com', 'rahul.goswami@franklintempleton.com', 'naveen.sharma2@nomura.com',
-'vivek.r.sharma@nipponindiaim.com']
+SENDER = 'info@domain.com'
+TEST_RECIPIENT = ['']
+RECIPIENTS = ['']

@@ -15,8 +15,8 @@ import mimetypes
 import time
 
 url = "https://www.ccilindia.com/web/ccil/reported-deals2"
-client_id ="542648783693-e1e6uvevlh2cpj67a38g1684hqiaeqel.apps.googleusercontent.com"
-client_secret = "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"
+client_id ="google_api_client_id"
+client_secret = "client_secret"
 SCOPES = ['https://www.googleapis.com/auth/gmail.send']
 
 
@@ -135,7 +135,7 @@ def orchestrate_flow():
 
         # Mail screenshot
         service = get_gmail_service()
-        message = create_message('me', 'shubhi.moti@gmail.com', 'CCIL T+2 Reported Deals', total_value_text,
+        message = create_message('me', 'info@domain.com', 'CCIL T+2 Reported Deals', total_value_text,
                                  screenshot_path)
         send_message(service, 'me', message)
 
